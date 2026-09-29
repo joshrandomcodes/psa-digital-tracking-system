@@ -1,0 +1,58 @@
+-- 1. Registry Office
+CREATE TABLE REGISTRY_OFFICE (
+    OfficeCode INT PRIMARY KEY,
+    OfficeName VARCHAR(100) NOT NULL,
+    OfficeType VARCHAR(30) NOT NULL,
+    Region VARCHAR(50) NOT NULL,
+    ContactEmail VARCHAR(100) NOT NULL
+);
+
+-- 2. Citizen / Applicant
+CREATE TABLE CITIZEN (
+    CitizenID INT PRIMARY KEY AUTO_INCREMENT,
+    PhilSysID VARCHAR(25) UNIQUE NOT NULL,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    Email VARCHAR(100) NOT NULL
+);
+
+-- 3. Civil Records (PhilCRIS Legacy Records)
+CREATE TABLE CIVIL_RECORD (
+    RecordID INT PRIMARY KEY AUTO_INCREMENT,
+    OfficeCode INT NOT NULL,
+    RegistryType VARCHAR(25) NOT NULL,
+    SubjectFName VARCHAR(50) NOT NULL,
+    SubjectLName VARCHAR(50) NOT NULL,
+    FOREIGN KEY (OfficeCode) REFERENCES REGISTRY_OFFICE(OfficeCode)
+);
+
+-- 4. PSA Staff / Admin
+CREATE TABLE PSA_STAFF (
+    StaffID INT PRIMARY KEY AUTO_INCREMENT,
+    OfficeCode INT NOT NULL,
+    Role VARCHAR(50) NOT NULL,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    FOREIGN KEY (OfficeCode) REFERENCES REGISTRY_OFFICE(OfficeCode)
+);
+
+-- 5. Document Request Table (D1 Request Database)
+CREATE TABLE DOCUMENT_REQUEST (
+    RequestID INT PRIMARY KEY AUTO_INCREMENT,
+    CitizenID INT NOT NULL,
+    RequestType VARCHAR(25) NOT NULL DEFAULT 'Birth Certificate',
+    RequestStatus VARCHAR(25) NOT NULL,
+    DateFiled DATE NOT NULL,
+    FOREIGN KEY (CitizenID) REFERENCES CITIZEN(CitizenID)
+);
+
+-- 6. Tracking Log Table
+CREATE TABLE TRACKING_LOG (
+    LogID INT PRIMARY KEY AUTO_INCREMENT,
+    RequestID INT NOT NULL,
+    StaffID INT NULL,
+    StatusUpdate VARCHAR(25) NOT NULL,
+    UpdateTime DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (RequestID) REFERENCES DOCUMENT_REQUEST(RequestID),
+    FOREIGN KEY (StaffID) REFERENCES PSA_STAFF(StaffID)
+);
