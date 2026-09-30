@@ -13,6 +13,7 @@ const psaStaffController = require('./controllers/psaStaffController');
 
 // Level 1 DFD Routes
 app.post('/api/requests', requestController.submitRequest);
+app.get('/api/requests', requestController.listRequests);
 app.post('/api/lcro/validate', lcroController.validateRecord);
 app.post('/api/staff/decision', psaStaffController.makeDecision);
 
