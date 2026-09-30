@@ -1,12 +1,17 @@
--- IMPORTANT NOTE/ KEY CHANGE FROM THE INITIAL SCHEMA:
--- Removed CIVIL_RECORD. PhilCRIS is an external, authoritative repository accessed live through the Integration Layer.
--- This system does not store a local copy of civil registry records.
--- TRACKING_LOG is split into NOTIFICATION_LOG and LCRO_SYNC_LOG to match the Notify Service and LCRO Sync Service in the Service Layer.
+-- HOW TO RUN:
+-- This file does not create or select a database. Connect to the target database first 
+-- (Aiven: "defaultdb"), then run this script, then seed.sql.
 
+
+-- KEY CHANGES FROM THE INITIAL SCHEMA:
+-- 1. CIVIL_RECORD removed. PhilCRIS is an external, authoritative repository accessed live through the Integration Layer, 
+-- so no local copy of civil registry records is stored.
+-- 2. TRACKING_LOG split into NOTIFICATION_LOG and LCRO_SYNC_LOG to match the Notify Service and LCRO Sync Service in the Service Layer.
+
+
+-- NOTE: PasswordHash columns use a placeholder default until real authentication is implemented.
 -- ------------------------------------------------------------------------
 
-CREATE DATABASE IF NOT EXISTS psa_database;
-USE psa_database;
 
 -- 1. Registry Office
 CREATE TABLE REGISTRY_OFFICE (

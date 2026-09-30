@@ -1,8 +1,5 @@
 -- sample seed data for local testing.
-
--- run after the schema:  mysql -u root -p psa_database < database/seed.sql
 -- ---------------------------------------------------------------------------------
-USE psa_database;
 
 -- Registry Offices
 INSERT INTO REGISTRY_OFFICE (OfficeName, OfficeType, Region, ContactEmail) VALUES

@@ -1,23 +1,40 @@
 # psa-digital-tracking-system
 The following is a project to be submitted for the PSA Digital Birth Certificate Processing and Tracking System proposed for System Integration and Architecture 2 course.
 
-# Local Setup Instructions
-1️. Database Setup
-I. Open your local MySQL environment.
-II. Create a new database named psa_database.
-III. Execute the database/schema.sql script to generate the required tables.   
-2️. Backend Setup
-I. Open a terminal and navigate to the server directory: cd server
-II. Install dependencies: npm install
-III. Rename .env.example to .env and input your local MySQL credentials (DB_USER, DB_PASSWORD).
-IV. Start the backend: node src/server.js (Runs on port 5000).
-3️. Frontend Setup
-I. Open a separate terminal and navigate to the client directory: cd client
-II. Install dependencies: npm install
-III. Start the development server: npm run dev
-IV. Access the application in your browser through the link or such you'll see in your terminal
+# Setup Instructions
 
-The following files and such currently are just a basic skeleton and structure subject to change alongside these here are key notes to take note for the system's architectural blueprint:
+The database is cloud-hosted on Aiven (MySQL), so no local MySQL setup is needed.
+The tables and sample data are already loaded. Do NOT run schema.sql or seed.sql again.
+
+## 1. Get the database credentials
+Is available in the GC or ask me (Jb) for it
+
+## 2. Backend Setup
+1. Open a terminal and go to the server folder: `cd server`
+2. Install dependencies: `npm install`
+3. Create a file named `.env` inside the `server` folder (make sure it is not saved as `.env.txt`) with:
+
+        PORT=5000
+
+        # Aiven cloud MySQL. Get the real password from the group; never commit .env
+        DB_HOST=psa-database-psa-digital-tracking-system.h.aivencloud.com
+        DB_PORT=10411
+        DB_USER=avnadmin
+        DB_PASSWORD=
+        DB_NAME=defaultdb
+
+4. Start the backend: `node src/server.js` (runs on port 5000)
+5. Test it: open http://localhost:5000/api/requests. It should return JSON.
+
+## 3. Frontend Setup
+1. Open a separate terminal and go to the client folder: `cd client`
+2. Install dependencies: `npm install`
+3. Start the dev server: `npm run dev`
+4. Open the link shown in the terminal.
+
+## Rules
+- Never commit `.env`, passwords, or API keys. `.env` is already in `.gitignore`.
+- `server/src/config/ca.pem` is a public SSL certificate and is safe to commit. It is required to connect to Aiven.
 
 # Frontend: React.js (Vite) + Tailwind CSS
 
