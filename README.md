@@ -45,19 +45,19 @@ Is available in the GC or ask me (Jb) for it
 TO-DO List:
 
 # Jeybi 
-- I'll give you full freedom but essentially base it off of our paper but right now I'm still not final and you'll probably be the most important person for this, I'm unsure if we'll have the program's backend be locally ran or be hosted through a cloud database like a free one, if we do host it via the cloud, testing will be easier and local setup will be therefore removed, the only setup needed now is just practically running the frontend side and starting up the app.
+- Quality Assurance testing of backend systems and make possible improvements you see fit to be made for the backend system's performance too.
 
 # Godwyne 
-- As of right now the thing I made and fucked around with is pretty much a barebones skeleton, you can do the local setup and start testing the functionalities if it works, I didn't fully test it since I have a lot of projects to lead and deal with currently but I did this early so we can start getting things done immediately, do any changes necessary if needed and take the time to get used to using react, it's easier to implement a lot of visual changes and animations with it's js library so it'll be best if we continue using it.
+- Development of the react frontend. Citizen tracker status should be built on the frontend and also make a connection to it on the backend for seamless integration as our system has to be real-time as part of the requirement. Alongside frontend development for the staff processing dashboard. Also in terms of color schemes and customization, perhaps integrate a simple light and dark mode for the time being, for design references base it off of the PSA's design and modern design principles, whichever works best for you.
 
 # Katrina
-- TBA
+- Develop the node.js backend for the project, specifically the logic for request verification based on our system requirements (heavily based on our paper outlining the system and diagrams) alongside PhilSys identity checks.
 
 # Tristan
-- TBA
+- Perform quality assurance testing daily and verify the system workflow follows the activity diagram workflows we've worked on in previous papers conceptualizing and designing the framework for this project. Report any bugs or improvements to be made immediately in the group chat.
 
 # Adrian
-- TBA
+- Review the system architecture and integration of cloud, ensure the integration and reviewing of such matches and aligns with the level 0 and level 1 data flow diagrams.
 
 # Joshua
-- Double check and verify everything works, oversee everything and get this all done or something.
+- Reviewing of system tracker system and polishing of every addition made during this week by the weekends.
