@@ -48,16 +48,16 @@ TO-DO List:
 - Conduct QA testing on the backend systems and the Aiven cloud database. Implement performance improvements for database queries and overall backend speed.
 
 # Godwyne 
-- Develop the React frontend. Build the real-time citizen status tracker and connect it seamlessly to the backend. Develop the staff processing dashboard. Integrate a simple light/dark mode based on modern PSA design principles.
+- Develop the React frontend. Build the real-time citizen status tracker and connect it seamlessly to the backend. Develop the staff processing dashboard. Integrate a simple light/dark mode based on modern PSA design principles. Also for the Philsys ID text formatting, you can do it via the React frontend as input masking within the Citizen portal dashboards and other relevant dashboards.
 
 # Katrina
-- Develop the Node.js backend. Program the request verification logic and PhilSys identity checks strictly based on our system requirements and paper diagrams.
+- Develop the Node.js backend. Program the request verification logic and PhilSys identity checks strictly based on our system requirements and paper diagrams. Alongside this based on our activity diagram if no record is found it must be flagged manually which is then routed to the LCRO dashboard rather than stopping the verification from theere.
 
 # Tristan
 - Perform daily QA testing. Verify that the system routing strictly follows the Activity Diagram workflows we conceptualized. Report any bugs or necessary improvements immediately in the group chat.
 
 # Adrian
-- Review the system architecture and integration of cloud, ensure the integration and reviewing of such matches and aligns with the level 0 and level 1 data flow diagrams.
+- Review the system architecture and integration of cloud, ensure the integration and reviewing of such matches and aligns with the level 0 and level 1 data flow diagrams. Also do an implementation on the backend for role authorization of what can be accessed, where for example a normal citizen has restricted access to other parts of the system, but PSA personnels have more access but some restrictions to specific parts and so on, utilize the principle of least privilege.
 
 # Joshua
 - Reviewing of system tracker system and polishing of every addition made during this week by the weekends.
