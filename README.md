@@ -45,16 +45,16 @@ Is available in the GC or ask me (Jb) for it
 TO-DO List:
 
 # Jeybi 
-- Quality Assurance testing of backend systems and make possible improvements you see fit to be made for the backend system's performance too.
+- Conduct QA testing on the backend systems and the Aiven cloud database. Implement performance improvements for database queries and overall backend speed.
 
 # Godwyne 
-- Development of the react frontend. Citizen tracker status should be built on the frontend and also make a connection to it on the backend for seamless integration as our system has to be real-time as part of the requirement. Alongside frontend development for the staff processing dashboard. Also in terms of color schemes and customization, perhaps integrate a simple light and dark mode for the time being, for design references base it off of the PSA's design and modern design principles, whichever works best for you.
+- Develop the React frontend. Build the real-time citizen status tracker and connect it seamlessly to the backend. Develop the staff processing dashboard. Integrate a simple light/dark mode based on modern PSA design principles.
 
 # Katrina
-- Develop the node.js backend for the project, specifically the logic for request verification based on our system requirements (heavily based on our paper outlining the system and diagrams) alongside PhilSys identity checks.
+- Develop the Node.js backend. Program the request verification logic and PhilSys identity checks strictly based on our system requirements and paper diagrams.
 
 # Tristan
-- Perform quality assurance testing daily and verify the system workflow follows the activity diagram workflows we've worked on in previous papers conceptualizing and designing the framework for this project. Report any bugs or improvements to be made immediately in the group chat.
+- Perform daily QA testing. Verify that the system routing strictly follows the Activity Diagram workflows we conceptualized. Report any bugs or necessary improvements immediately in the group chat.
 
 # Adrian
 - Review the system architecture and integration of cloud, ensure the integration and reviewing of such matches and aligns with the level 0 and level 1 data flow diagrams.
