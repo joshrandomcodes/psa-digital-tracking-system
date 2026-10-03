@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import PhilsysInput, { formatPhilsys, PHILSYS_DIGITS } from './components/PhilsysInput';
 export default function App() {
   const [activeTab, setActiveTab] = useState('citizen'); 
   const [requests, setRequests] = useState([
@@ -20,11 +20,12 @@ export default function App() {
 
   const handleCitizenSubmit = (e) => {
     e.preventDefault();
+    if (formData.philSysId.length !== PHILSYS_DIGITS) { return alert(`PhilSys ID must be ${PHILSYS_DIGITS} digits`);}
     const newId = Math.floor(10000 + Math.random() * 90000);
     const newReq = {
       requestId: newId,
       citizenName: `${formData.firstName} ${formData.lastName}`,
-      philSysId: formData.philSysId,
+      philSysId: formatPhilsys(formData.philSysId),
       status: 'Pending LCRO Validation',
       dateFiled: new Date().toISOString().split('T')[0],
       logs: [
@@ -60,7 +61,8 @@ export default function App() {
   return (
     <div style={{ fontFamily: 'sans-serif', padding: '20px', maxWidth: '1000px', margin: '0 auto' }}>
       <header style={{ borderBottom: '2px solid #a00', paddingBottom: '10px', marginBottom: '20px' }}>
-        <h1 style={{ color: '#a00' }}>PSA Digital Birth Certificate Tracking System</h1>
+        <h1 style={{ color: '#a00' }}>PSA Digital Birth Certificate Tracking <br />l
+         System</h1>
         <div style={{ display: 'flex', gap: '10px' }}>
           <button onClick={() => setActiveTab('citizen')} style={{ fontWeight: activeTab === 'citizen' ? 'bold' : 'normal' }}>Citizen Portal</button>
           <button onClick={() => setActiveTab('lcro')} style={{ fontWeight: activeTab === 'lcro' ? 'bold' : 'normal' }}>LCRO Officer</button>
@@ -73,7 +75,7 @@ export default function App() {
           <div style={{ flex: 1 }}>
             <h2>Request Birth Certificate</h2>
             <form onSubmit={handleCitizenSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <input required placeholder="PhilSys ID" value={formData.philSysId} onChange={e => setFormData({...formData, philSysId: e.target.value})} />
+              <PhilsysInput  value={formData.philSysId}  onChange={(digits) => setFormData({ ...formData, philSysId: digits })}/>
               <input required placeholder="First Name" value={formData.firstName} onChange={e => setFormData({...formData, firstName: e.target.value})} />
               <input required placeholder="Last Name" value={formData.lastName} onChange={e => setFormData({...formData, lastName: e.target.value})} />
               <button type="submit" style={{ backgroundColor: '#a00', color: '#fff', padding: '10px' }}>Submit Request</button>
