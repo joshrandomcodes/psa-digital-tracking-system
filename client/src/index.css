@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-psa-blue: #1b4a93;
+  --color-psa-gold: #f0a81d;
+  --color-psa-light: #f1f5f9;
+  --color-psa-dark: #0f172a;
+  
+  --font-sans: "Public Sans", system-ui, sans-serif;
+  --font-mono: "Roboto Mono", monospace;
+}
