@@ -3,16 +3,16 @@ The following is a project to be submitted for the PSA Digital Birth Certificate
 
 # Setup Instructions
 
-The database is cloud-hosted on Aiven (MySQL), so no local MySQL setup is needed.
-The tables and sample data are already loaded. Do NOT run schema.sql or seed.sql again.
+The database is cloud-hosted on Aiven (MySQL), so no local MySQL setup is needed[cite: 17].
+The tables and sample data are already loaded. Do NOT run schema.sql or seed.sql again[cite: 17].
 
 ## 1. Get the database credentials
-Is available in the GC or ask me (Jb) for it
+Is available in the GC or ask me (Jb) for it[cite: 17]
 
 ## 2. Backend Setup
-1. Open a terminal and go to the server folder: `cd server`
-2. Install dependencies: `npm install`
-3. Create a file named `.env` inside the `server` folder (make sure it is not saved as `.env.txt`) with:
+1. Open a terminal and go to the server folder: `cd server`[cite: 17]
+2. Install dependencies (including Express, CORS, dotenv, MySQL2, and jsonwebtoken): `npm install`[cite: 17]
+3. Create a file named `.env` inside the `server` folder (make sure it is not saved as `.env.txt`) with:[cite: 17]
 
         PORT=5000
 
@@ -23,41 +23,46 @@ Is available in the GC or ask me (Jb) for it
         DB_PASSWORD=
         DB_NAME=defaultdb
 
-4. Start the backend: `node src/server.js` (runs on port 5000)
-5. Test it: open http://localhost:5000/api/requests. It should return JSON.
+4. Start the backend: `node src/server.js` (runs on port 5000)[cite: 17]
+5. Test it: open http://localhost:5000/api/requests. It should return JSON[cite: 17].
 
 ## 3. Frontend Setup
-1. Open a separate terminal and go to the client folder: `cd client`
-2. Install dependencies: `npm install`
-3. Start the dev server: `npm run dev`
-4. Open the link shown in the terminal.
+1. Open a separate terminal and go to the client folder: `cd client`[cite: 17]
+2. Install dependencies: `npm install`[cite: 17]
+3. Start the dev server: `npm run dev`[cite: 17]
+4. Open the link shown in the terminal[cite: 17].
 
 ## Rules
-- Never commit `.env`, passwords, or API keys. `.env` is already in `.gitignore`.
-- `server/src/config/ca.pem` is a public SSL certificate and is safe to commit. It is required to connect to Aiven.
+- Never commit `.env`, passwords, or API keys. `.env` is already in `.gitignore`[cite: 17].
+- `server/src/config/ca.pem` is a public SSL certificate and is safe to commit. It is required to connect to Aiven[cite: 17].
 
-# Frontend: React.js (Vite) + Tailwind CSS
+# Frontend: React.js (Vite) + Tailwind CSS[cite: 17]
 
-# Backend: Node.js + Express.js
+# Backend: Node.js + Express.js[cite: 17]
 
-# Database: MySQL mapped to 6 core entities
+# Database: MySQL mapped to 6 core entities[cite: 17]
 
-TO-DO List:
+---
 
-# Jeybi 
-- Conduct QA testing on the backend systems and the Aiven cloud database. Implement performance improvements for database queries and overall backend speed.
+## Testing Credentials (Live Database Seeding)
 
-# Godwyne 
-- Develop the React frontend. Build the real-time citizen status tracker and connect it seamlessly to the backend. Develop the staff processing dashboard. Integrate a simple light/dark mode based on modern PSA design principles. Also for the Philsys ID text formatting, you can do it via the React frontend as input masking within the Citizen portal dashboards and other relevant dashboards.
+*   **Citizen Portal (Jose Reyes):** `jose.reyes@email.com` / `demo123`
+*   **Citizen Portal (Maria Santos):** `maria.santos@email.com` / `demo123`
+*   **LCRO Validation Officer:** `PSA-2025-0043` / `demo123`
+*   **PSA Final Approval Admin:** `PSA-2025-0042` / `demo123`
 
-# Katrina
-- Develop the Node.js backend. Program the request verification logic and PhilSys identity checks strictly based on our system requirements and paper diagrams. Alongside this based on our activity diagram if no record is found it must be flagged manually which is then routed to the LCRO dashboard rather than stopping the verification from theere.
+---
 
-# Tristan
-- Perform daily QA testing. Verify that the system routing strictly follows the Activity Diagram workflows we conceptualized. Report any bugs or necessary improvements immediately in the group chat.
+Contributors:
 
-# Adrian
-- Review the system architecture and integration of cloud, ensure the integration and reviewing of such matches and aligns with the level 0 and level 1 data flow diagrams. Also do an implementation on the backend for role authorization of what can be accessed, where for example a normal citizen has restricted access to other parts of the system, but PSA personnels have more access but some restrictions to specific parts and so on, utilize the principle of least privilege.
+# Jeybi - Database Designer
 
-# Joshua
-- Reviewing of system tracker system and polishing of every addition made during this week by the weekends.
+# Godwyne - UI/UX Designer
+
+# Katrina - Technical Lead
+
+# Tristan - Business Analyst
+
+# Adrian - Solutions Architect
+
+# Joshua - Project Manager
