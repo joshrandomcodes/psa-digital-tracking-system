@@ -77,7 +77,7 @@ exports.submitRequest = async (req, res) => {
         await connection.beginTransaction();
 
 
-        // 3. FIND OR CREATE CITIZEN
+        // 3. FIND CITIZEN (Block unauthorized requests)
         const [existingCitizens] =
             await connection.query(
                 `
@@ -90,7 +90,6 @@ exports.submitRequest = async (req, res) => {
 
 
         let citizenId;
-
 
         if (existingCitizens.length > 0) {
 
@@ -116,30 +115,14 @@ exports.submitRequest = async (req, res) => {
             );
 
         } else {
-
-            const [insertResult] =
-                await connection.query(
-                    `
-                    INSERT INTO CITIZEN
-                        (
-                            PhilSysID,
-                            FirstName,
-                            LastName,
-                            Email
-                        )
-                    VALUES (?, ?, ?, ?)
-                    `,
-                    [
-                        normalizedPhilSysId,
-                        normalizedFirstName,
-                        normalizedLastName,
-                        email || ''
-                    ]
-                );
-
-
-            citizenId =
-                insertResult.insertId;
+            
+            // Gracefully reject unregistered PSNs
+            await connection.rollback();
+            
+            return res.status(403).json({
+                status: 'Error',
+                message: 'Unregistered PhilSys Number. A valid Citizen Account is required to request documents.'
+            });
         }
 
 

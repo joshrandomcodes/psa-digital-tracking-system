@@ -71,7 +71,6 @@ app.post(
 app.post('/api/auth/login', authController.login);
 app.post('/api/auth/register', authController.register);
 
-
 // 404 HANDLER
 app.use((req, res) => {
     res.status(404).json({
